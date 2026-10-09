@@ -45,7 +45,8 @@ const BannerPage = () => {
             <Image
               src={bannerLogo}
               alt="বাজারের বিভিন্ন পণ্যের ছবি"
-              fill
+            // width={400}
+            height={400}
               priority
               className="object-cover"
             />

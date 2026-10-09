@@ -1,6 +1,8 @@
 import Link from "next/link";
 import bazarlogo from "@/public/logo-icon.png"
 import Image from "next/image";
+import NavLinks from "./NavLinks";
+import { Suspense } from "react";
 
 const categories = [
   { name: "হোম", href: "/" },
@@ -57,28 +59,7 @@ const Navbar = () => {
         </div>
 
         {/* Category Navigation */}
-        <nav className="border-t border-gray-100">
-          <div className="flex items-center gap-1 overflow-x-auto">
-            {categories.map((category, index) => (
-              <Link
-                key={category.href}
-                href={category.href}
-                className={`relative whitespace-nowrap px-5 py-4 text-sm font-medium transition ${
-                  index === 0
-                    ? "text-red-600"
-                    : "text-gray-600 hover:text-red-600"
-                }`}
-              >
-                {category.name}
-
-                {/* Active Indicator */}
-                {index === 0 && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-red-600" />
-                )}
-              </Link>
-            ))}
-          </div>
-        </nav>
+   <Suspense fallback={"Loading..."}>  <NavLinks/></Suspense>
       </div>
     </header>
   );

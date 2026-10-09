@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import BannerPage from "./components/Banner";
 import ProductPage from "./components/ProductPage";
 import { Suspense } from "react";

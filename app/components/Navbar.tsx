@@ -3,17 +3,18 @@ import bazarlogo from "@/public/logo-icon.png"
 import Image from "next/image";
 import NavLinks from "./NavLinks";
 import { Suspense } from "react";
+import MarquePage from "./Marque";
 
-const categories = [
-  { name: "হোম", href: "/" },
-  { name: "সবজি", href: "/category/vegetables" },
-  { name: "মাছ", href: "/category/fish" },
-  { name: "মাংস", href: "/category/meat" },
-  { name: "চাল", href: "/category/rice" },
-  { name: "ডাল", href: "/category/lentils" },
-  { name: "মসলা", href: "/category/spices" },
-  { name: "ফল", href: "/category/fruits" },
-];
+// const categories = [
+//   { name: "হোম", href: "/" },
+//   { name: "সবজি", href: "/category/vegetables" },
+//   { name: "মাছ", href: "/category/fish" },
+//   { name: "মাংস", href: "/category/meat" },
+//   { name: "চাল", href: "/category/rice" },
+//   { name: "ডাল", href: "/category/lentils" },
+//   { name: "মসলা", href: "/category/spices" },
+//   { name: "ফল", href: "/category/fruits" },
+// ];
 
 const Navbar = () => {
   return (
@@ -60,6 +61,8 @@ const Navbar = () => {
 
         {/* Category Navigation */}
    <Suspense fallback={"Loading..."}>  <NavLinks/></Suspense>
+   <Suspense fallback={"Loading..."}><MarquePage/></Suspense>
+   
       </div>
     </header>
   );

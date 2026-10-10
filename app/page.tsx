@@ -7,7 +7,7 @@ export default function Home() {
   return (
    <div>
     <BannerPage/>
-    <Suspense fallback={"Loading..."}><ProductPage/></Suspense>
+    <ProductPage/>
    </div>
   );
 }

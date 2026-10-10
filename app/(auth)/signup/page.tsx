@@ -38,6 +38,8 @@ const RegisterPage = () => {
       if (data) {
         toast.success("Successfully signup complete")
         router.push("/");
+      }else{
+         toast.error(error?.message || "signup failed");
       }
     } catch {
       setErrorMessage("Something went wrong. Please try again.");

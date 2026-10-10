@@ -1,9 +1,10 @@
 import Link from "next/link";
-import bazarlogo from "@/public/logo-icon.png"
+import bazarlogo from "@/public/logo-icon.png";
 import Image from "next/image";
 import NavLinks from "./NavLinks";
 import { Suspense } from "react";
 import MarquePage from "./Marque";
+import UserInfoPage from "./UserInfo";
 
 // const categories = [
 //   { name: "হোম", href: "/" },
@@ -26,7 +27,13 @@ const Navbar = () => {
           <Link href="/" className="group">
             <div className="flex items-center gap-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-600 text-xl shadow-sm">
-         <Image className="" src={bazarlogo} height={20} width={20} alt="bazar"/>
+                <Image
+                  className=""
+                  src={bazarlogo}
+                  height={20}
+                  width={20}
+                  alt="bazar"
+                />
               </div>
 
               <div>
@@ -34,35 +41,25 @@ const Navbar = () => {
                   বাজার দর
                 </h1>
 
-                <p className="text-xs text-gray-500">
-                  ২৩ আশ্বিন ১৪৩৩ বঙ্গাব্দ
-                </p>
+                <p className="text-xs text-gray-500">২৩ আশ্বিন ১৪৩৩ বঙ্গাব্দ</p>
               </div>
             </div>
           </Link>
 
           {/* Auth Buttons */}
           <div className="flex items-center gap-3">
-            <Link
-              href="/signin"
-              className="rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:border-red-500 hover:text-red-600"
-            >
-              সাইন ইন
-            </Link>
-
-            <Link
-              href="/signup"
-              className="rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700"
-            >
-              সাইন আপ
-            </Link>
+          <UserInfoPage/>
           </div>
         </div>
 
         {/* Category Navigation */}
-   <Suspense fallback={"Loading..."}>  <NavLinks/></Suspense>
-   <Suspense fallback={"Loading..."}><MarquePage/></Suspense>
-   
+        <Suspense fallback={"Loading..."}>
+          {" "}
+          <NavLinks />
+        </Suspense>
+        <Suspense fallback={"Loading..."}>
+          <MarquePage />
+        </Suspense>
       </div>
     </header>
   );

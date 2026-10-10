@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -34,7 +35,8 @@ const RegisterPage = () => {
       }
 
       if (data) {
-        router.push("/signin");
+        toast.success("Successfully signup complete")
+        router.push("/");
       }
     } catch {
       setErrorMessage("Something went wrong. Please try again.");

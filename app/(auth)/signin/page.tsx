@@ -2,10 +2,12 @@
 
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
 const SignInPage = () => {
+  const router=useRouter();
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -15,11 +17,12 @@ const SignInPage = () => {
     const { data, error } = await authClient.signIn.email({
       email: user.email as string,
       password: user.password as string,
-      callbackURL: "/",
+
     });
 
     if (data) {
       toast.success("Login Successfully");
+      router.push("/")
     } else {
       toast.error(error?.message || "Login failed");
     }

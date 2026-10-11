@@ -104,15 +104,10 @@ const SignInPage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        {/* <div className="grid grid-cols-2 gap-3">
           <button
             type="button"
-            onClick={() =>
-              authClient.signIn.social({
-                provider: "google",
-                callbackURL: "/",
-              })
-            }
+            
             className="flex items-center justify-center gap-2 rounded-lg border border-slate-300 px-3 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
           >
             <span className="text-lg font-bold">G</span>
@@ -138,10 +133,10 @@ const SignInPage = () => {
             </svg>
             GitHub
           </button>
-        </div>
+        </div> */}
 
         <p className="mt-7 text-center text-sm text-slate-500">
-          Don&apos;t have an account?{" "}
+          Don't have an account?
           <Link
             href="/signup"
             className="font-semibold text-blue-600 hover:text-blue-700 hover:underline"

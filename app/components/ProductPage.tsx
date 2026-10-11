@@ -19,7 +19,7 @@ type Product = {
   };
 };
 
-const API_URL = "https://api.abcz.workers.dev/api/bazardor/products";
+const API_URL = "https://openapi.programming-hero.com/api/bazardor/products";
 
 const unitMap: Record<string, string> = {
   kg: "প্রতি কেজি",
@@ -156,7 +156,14 @@ const ProductPage = async () => {
     } else {
       throw new Error("Unexpected API response format");
     }
-  } catch (error) {
+  }    catch (error) {
+    if (
+      error instanceof Error &&
+      error.message.includes("During prerendering, fetch() rejects")
+    ) {
+      throw error;
+    }
+
     hasError = true;
     console.error("Failed to fetch products:", error);
   }

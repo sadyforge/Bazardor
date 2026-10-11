@@ -4,6 +4,14 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { Toaster } from "react-hot-toast";
 import FooterPage from "./components/FooterPage";
+import { Hind_Siliguri } from "next/font/google";
+
+const hindSiliguri = Hind_Siliguri({
+  subsets: ["bengali", "latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${hindSiliguri.style} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
          <Toaster />
